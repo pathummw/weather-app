@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 
-export default function SearchBar() {
+export default function SearchBar(props) {
   const Button = styled.button`
     font-family: "Open Sans", sans-serif;
     font-weight: 500;
@@ -10,22 +10,26 @@ export default function SearchBar() {
     color: whitesmoke;
     padding: 3px 20px;
     cursor: pointer;
+    border: none;
+    height: 52px;
   `;
   const Input = styled.input`
     font-family: "Open Sans", sans-serif;
     font-weight: 500;
     font-size: 16px;
+    border: none ;
+    height: 50px;
   `;
-  const handleChange = (e) => {
-    console.log(e.target.value);
-  };
-  const handleClick = (e) => {
-    console.log(e.target.value);
+
+  const inputRef = useRef();
+  const handleClick = () => {
+    const name = inputRef.current.value;
+    props.setSearchField(name);
   };
 
   return (
     <div>
-      <Input type="text" name="search" onChange={handleChange} />
+      <Input type="text" ref={inputRef} name="search" placeholder="Enter city" />
       <Button onClick={handleClick}>Search</Button>
     </div>
   );
