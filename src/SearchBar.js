@@ -11,7 +11,7 @@ export default function SearchBar(props) {
     padding: 3px 20px;
     cursor: pointer;
     border: none;
-    height: 52px;
+    height: 50px;
   `;
   const Input = styled.input`
     font-family: "Open Sans", sans-serif;
@@ -19,6 +19,7 @@ export default function SearchBar(props) {
     font-size: 16px;
     border: none ;
     height: 50px;
+    padding: 0 10px ;
   `;
 
   const inputRef = useRef();
